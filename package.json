@@ -1,0 +1,37 @@
+{
+    "name": "@bejibun/utils",
+    "version": "0.1.0",
+    "author": "Havea Crenata <havea.crenata@gmail.com>",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/crenata/bejibun-utils.git"
+    },
+    "main": "index.js",
+    "module": "index.js",
+    "devDependencies": {
+        "@types/bun": "latest",
+        "tsc-alias": "^1.8.16"
+    },
+    "bugs": {
+        "url": "https://github.com/crenata/bejibun-utils/issues"
+    },
+    "description": "Any utils for Bejibun Framework",
+    "homepage": "https://github.com/crenata/bejibun-utils#readme",
+    "keywords": [
+        "bun",
+        "bun framework",
+        "utils",
+        "bejibun",
+        "typescript"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "alias": "bunx tsc-alias -p tsconfig.json",
+        "rsync": "rsync -a dist/ ./",
+        "clean": "rm -rf dist",
+        "build": "bunx tsc -p tsconfig.json && bun run alias && bun run rsync && bun run clean",
+        "deploy": "bun run build && npm publish --access public"
+    },
+    "type": "module",
+    "types": "index.d.ts"
+}
