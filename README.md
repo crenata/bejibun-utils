@@ -24,6 +24,19 @@ bun add @bejibun/utils
 bun ace install @bejibun/utils
 ```
 
+### Available Helpers
+List of available functions.
+- isEmpty()
+- isNotEmpty()
+- defineValue()
+- ask()
+- Enum.setEnums(enums).getName()
+- Enum.setEnums(enums).getValue()
+- Enum.setEnums(enums).toArray()
+- Str.toLowerCase()
+- Str.toPascalCase()
+- Str.toUpperCase()
+
 ## Contributors
 - [Havea Crenata](mailto:havea.crenata@gmail.com)
 

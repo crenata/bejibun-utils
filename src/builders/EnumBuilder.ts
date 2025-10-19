@@ -2,7 +2,7 @@ import {isEmpty} from "@/utils/utils";
 
 export type EnumItem = {
     name: string;
-    value: number;
+    value: any;
 }
 
 export default class EnumBuilder {

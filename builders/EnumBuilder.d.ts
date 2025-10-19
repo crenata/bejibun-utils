@@ -1,6 +1,6 @@
 export type EnumItem = {
     name: string;
-    value: number;
+    value: any;
 };
 export default class EnumBuilder {
     protected enums: any;
