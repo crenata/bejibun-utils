@@ -1,9 +1,10 @@
+import EnumException from "../exceptions/EnumException";
 import { isEmpty } from "../utils/utils";
 export default class EnumBuilder {
     enums;
     constructor(enums) {
         if (isEmpty(enums))
-            throw new Error("The enum parameter is required.");
+            throw new EnumException("The enum parameter is required.");
         this.enums = enums;
     }
     getName(value) {

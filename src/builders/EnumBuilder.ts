@@ -1,3 +1,4 @@
+import EnumException from "@/exceptions/EnumException";
 import {isEmpty} from "@/utils/utils";
 
 export type EnumItem = {
@@ -9,7 +10,7 @@ export default class EnumBuilder {
     protected enums: any;
 
     public constructor(enums: any) {
-        if (isEmpty(enums)) throw new Error("The enum parameter is required.");
+        if (isEmpty(enums)) throw new EnumException("The enum parameter is required.");
         this.enums = enums;
     }
 
