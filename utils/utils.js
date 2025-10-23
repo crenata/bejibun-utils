@@ -29,3 +29,8 @@ export const ask = (question) => {
         });
     });
 };
+export const isCommandExists = (command) => {
+    const isWindows = process.platform === "win32";
+    const checker = isWindows ? "where" : "which";
+    return Bun.spawnSync([checker, command]).exitCode === 0;
+};

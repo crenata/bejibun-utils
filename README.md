@@ -30,6 +30,7 @@ List of available functions.
 - isNotEmpty()
 - defineValue()
 - ask()
+- isCommandExists()
 - Enum.setEnums(enums).getName()
 - Enum.setEnums(enums).getValue()
 - Enum.setEnums(enums).toArray()

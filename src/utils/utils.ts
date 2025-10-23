@@ -37,3 +37,10 @@ export const ask = (question: string): Promise<string> => {
         });
     });
 };
+
+export const isCommandExists = (command: string): boolean => {
+    const isWindows = process.platform === "win32";
+    const checker = isWindows ? "where" : "which";
+
+    return Bun.spawnSync([checker, command]).exitCode === 0;
+};
