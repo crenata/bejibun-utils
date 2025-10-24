@@ -39,6 +39,9 @@ List of available functions.
 - Str.toLowerCase()
 - Str.toPascalCase()
 - Str.toUpperCase()
+- Luxon.datetime -> DateTime
+- Luxon.duration -> Duration
+- Luxon.interval -> Interval
 
 ## Contributors
 - [Havea Crenata](mailto:havea.crenata@gmail.com)

@@ -3,6 +3,21 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [v0.1.16-rc1](https://github.com/crenata/bejibun-utils/compare/v0.1.15...v0.1.16-rc1) - 2025-10-23
+
+### 🩹 Fixes
+
+### 📖 Changes
+What's New :
+- Extend date time to luxon
+
+### ❤️Contributors
+- Ghulje ([@ghulje](https://github.com/ghulje))
+
+**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+
+---
+
 ## [v0.1.15](https://github.com/crenata/bejibun-utils/compare/v0.1.14...v0.1.15) - 2025-10-23
 
 ### 🩹 Fixes
