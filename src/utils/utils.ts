@@ -7,6 +7,7 @@ export const isEmpty = (value: any): boolean => {
         value === false ||
         value === 0 ||
         value === 0n ||
+        (typeof value === "number" && Number.isNaN(value)) ||
         (typeof value === "string" && Bun.stringWidth(value.trim()) === 0) ||
         (Array.isArray(value) && value.length === 0) ||
         (typeof value === "object" && !Array.isArray(value) && Object.keys(value).length === 0)

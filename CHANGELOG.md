@@ -3,6 +3,20 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [v0.1.17](https://github.com/crenata/bejibun-utils/compare/v0.1.16-rc1...v0.1.17) - 2025-10-23
+
+### 🩹 Fixes
+- Fix `isEmpty` check NaN
+
+### 📖 Changes
+
+### ❤️Contributors
+- Ghulje ([@ghulje](https://github.com/ghulje))
+
+**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+
+---
+
 ## [v0.1.16-rc1](https://github.com/crenata/bejibun-utils/compare/v0.1.15...v0.1.16-rc1) - 2025-10-23
 
 ### 🩹 Fixes
