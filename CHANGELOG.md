@@ -11,7 +11,7 @@ All notable changes to this project will be documented in this file.
 ### 📖 Changes
 
 ### ❤️Contributors
-- Ghulje ([@ghulje](https://github.com/ghulje))
+- Havea Crenata ([@crenata](https://github.com/crenata))
 
 **Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
 
