@@ -26,7 +26,7 @@ Luxon.Interval;
 Please upgrade to this version carefully.
 
 ### ❤️Contributors
-- Havea Crenata ([@crenata](https://github.com/crenata))
+- Ghulje ([@ghulje](https://github.com/ghulje))
 
 **Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
 
