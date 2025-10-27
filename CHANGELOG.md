@@ -3,6 +3,35 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [v0.1.18](https://github.com/crenata/bejibun-utils/compare/v0.1.17...v0.1.18) - 2025-10-27
+
+### 🩹 Fixes
+
+### 📖 Changes
+Breaking Changes :
+- Restructure and separating class
+
+```ts
+// v0.1.17
+Luxon.datetime;
+Luxon.duration;
+Luxon.interval;
+
+// v0.1.18
+Luxon.DateTime;
+Luxon.Duration;
+Luxon.Interval;
+```
+
+Please upgrade to this version carefully.
+
+### ❤️Contributors
+- Havea Crenata ([@crenata](https://github.com/crenata))
+
+**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+
+---
+
 ## [v0.1.17](https://github.com/crenata/bejibun-utils/compare/v0.1.16-rc1...v0.1.17) - 2025-10-23
 
 ### 🩹 Fixes

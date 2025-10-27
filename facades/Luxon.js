@@ -1,12 +1,12 @@
-import { DateTime, Duration, Interval } from "luxon";
+import { DateTime as LuxonDateTime, Duration as LuxonDuration, Interval as LuxonInterval } from "luxon";
 export default class Luxon {
-    static get datetime() {
-        return DateTime;
+    static get DateTime() {
+        return LuxonDateTime;
     }
-    static get duration() {
-        return Duration;
+    static get Duration() {
+        return LuxonDuration;
     }
-    static get interval() {
-        return Interval;
+    static get Interval() {
+        return LuxonInterval;
     }
 }
