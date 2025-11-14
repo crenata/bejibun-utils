@@ -35,3 +35,12 @@ export const isCommandExists = (command) => {
     const checker = isWindows ? "where" : "which";
     return Bun.spawnSync([checker, command]).exitCode === 0;
 };
+export const isModuleExists = (module) => {
+    try {
+        require.resolve(module);
+        return true;
+    }
+    catch (error) {
+        return false;
+    }
+};

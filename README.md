@@ -33,6 +33,7 @@ List of available functions.
 - defineValue()
 - ask()
 - isCommandExists()
+- isModuleExists()
 - Enum.setEnums(enums).getName()
 - Enum.setEnums(enums).getValue()
 - Enum.setEnums(enums).toArray()

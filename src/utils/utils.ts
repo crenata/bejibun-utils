@@ -45,3 +45,13 @@ export const isCommandExists = (command: string): boolean => {
 
     return Bun.spawnSync([checker, command]).exitCode === 0;
 };
+
+export const isModuleExists = (module: string): boolean => {
+    try {
+        require.resolve(module);
+
+        return true;
+    } catch (error: any) {
+        return false;
+    }
+};

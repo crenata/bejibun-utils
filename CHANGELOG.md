@@ -3,6 +3,21 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [v0.1.21](https://github.com/crenata/bejibun-utils/compare/v0.1.18...v0.1.21) - 2025-11-14
+
+### 🩹 Fixes
+
+### 📖 Changes
+What's New :
+- `isModuleExists(module: string)` Check if module installed
+
+### ❤️Contributors
+- Ghulje ([@ghulje](https://github.com/ghulje))
+
+**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+
+---
+
 ## [v0.1.18](https://github.com/crenata/bejibun-utils/compare/v0.1.17...v0.1.18) - 2025-10-27
 
 ### 🩹 Fixes
