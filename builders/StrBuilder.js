@@ -28,4 +28,12 @@ export default class StrBuilder {
             return this;
         return this.value;
     }
+    random(size) {
+        this.value = [...Array(defineValue(size, 32))]
+            .map(() => {
+            return (Math.random() * 36 | 0).toString(36);
+        })
+            .join("");
+        return this.value;
+    }
 }

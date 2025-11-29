@@ -9,4 +9,7 @@ export default class Str {
     static toUpperCase(value, combine) {
         return new StrBuilder().setValue(value).toUpperCase(combine);
     }
+    static random(size) {
+        return new StrBuilder().random(size);
+    }
 }

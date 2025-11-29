@@ -38,4 +38,14 @@ export default class StrBuilder {
 
         return this.value;
     }
+
+    public random(size?: number): string {
+        this.value = [...Array(defineValue(size, 32))]
+            .map(() => {
+                return (Math.random() * 36 | 0).toString(36);
+            })
+            .join("");
+
+        return this.value;
+    }
 }

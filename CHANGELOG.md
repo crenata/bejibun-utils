@@ -3,6 +3,21 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [v0.1.22](https://github.com/crenata/bejibun-utils/compare/v0.1.21...v0.1.22) - 2025-11-29
+
+### 🩹 Fixes
+
+### 📖 Changes
+What's New :
+- `Str.random(size?: number)` Generate random string.
+
+### ❤️Contributors
+- Havea Crenata ([@crenata](https://github.com/crenata))
+
+**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+
+---
+
 ## [v0.1.21](https://github.com/crenata/bejibun-utils/compare/v0.1.18...v0.1.21) - 2025-11-14
 
 ### 🩹 Fixes
