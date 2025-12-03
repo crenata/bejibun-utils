@@ -8,7 +8,8 @@ export const isEmpty = (value) => {
         (typeof value === "number" && Number.isNaN(value)) ||
         (typeof value === "string" && Bun.stringWidth(value.trim()) === 0) ||
         (Array.isArray(value) && value.length === 0) ||
-        (typeof value === "object" && !Array.isArray(value) && Object.keys(value).length === 0));
+        (value instanceof Blob && value.size === 0) ||
+        (typeof value === "object" && !Array.isArray(value) && !(value instanceof Blob) && Object.keys(value).length === 0));
 };
 export const isNotEmpty = (value) => {
     return !isEmpty(value);

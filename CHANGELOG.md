@@ -3,6 +3,20 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [v0.1.23](https://github.com/crenata/bejibun-utils/compare/v0.1.22...v0.1.23) - 2025-12-03
+
+### 🩹 Fixes
+- Empty validation for file - [#1](https://github.com/crenata/bejibun-utils/issues/1)
+
+### 📖 Changes
+
+### ❤️Contributors
+- Ghulje ([@ghulje](https://github.com/ghulje))
+
+**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+
+---
+
 ## [v0.1.22](https://github.com/crenata/bejibun-utils/compare/v0.1.21...v0.1.22) - 2025-11-29
 
 ### 🩹 Fixes
