@@ -1,15 +1,24 @@
 import readline from "readline";
 export const isEmpty = (value) => {
-    return (value === undefined ||
-        value === null ||
-        value === false ||
-        value === 0 ||
-        value === 0n ||
-        (typeof value === "number" && Number.isNaN(value)) ||
-        (typeof value === "string" && Bun.stringWidth(value.trim()) === 0) ||
-        (Array.isArray(value) && value.length === 0) ||
-        (value instanceof Blob && value.size === 0) ||
-        (typeof value === "object" && !Array.isArray(value) && !(value instanceof Blob) && Object.keys(value).length === 0));
+    if (value === undefined)
+        return true;
+    if (value === null)
+        return true;
+    if (typeof value === "boolean")
+        return !value;
+    if (typeof value === "number")
+        return value === 0 || Number.isNaN(value);
+    if (typeof value === "bigint")
+        return value === 0n;
+    if (typeof value === "string")
+        return Bun.stringWidth(value.trim()) === 0;
+    if (Array.isArray(value))
+        return value.length === 0;
+    if (value instanceof Blob || value instanceof Map || value instanceof Set)
+        return value.size === 0;
+    if (Object.prototype.toString.call(value) === "[object Object]")
+        return Object.keys(value).length === 0;
+    return false;
 };
 export const isNotEmpty = (value) => {
     return !isEmpty(value);

@@ -3,6 +3,22 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [v0.1.24](https://github.com/crenata/bejibun-utils/compare/v0.1.23...v0.1.24) - 2025-12-07
+
+### 🩹 Fixes
+- Empty validation for class - [#2](https://github.com/crenata/bejibun-utils/issues/2)
+  
+Previously `isEmpty` was not working for variable instanceof class, it was give wrong returns.
+
+### 📖 Changes
+
+### ❤️Contributors
+- Ghulje ([@ghulje](https://github.com/ghulje))
+
+**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+
+---
+
 ## [v0.1.23](https://github.com/crenata/bejibun-utils/compare/v0.1.22...v0.1.23) - 2025-12-03
 
 ### 🩹 Fixes
