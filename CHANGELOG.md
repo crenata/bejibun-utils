@@ -3,6 +3,22 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [v0.1.25](https://github.com/crenata/bejibun-utils/compare/v0.1.24...v0.1.25) - 2025-12-09
+
+### 🩹 Fixes
+
+### 📖 Changes
+What's New :
+- `Object.serialize(value: any)` Convert object values into actual value, e.g. `{name: ""}` into `{name: null}`.
+- `Object.parseFormData(value: any)` Convert form data to object and serialized.
+
+### ❤️Contributors
+- Ghulje ([@ghulje](https://github.com/ghulje))
+
+**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+
+---
+
 ## [v0.1.24](https://github.com/crenata/bejibun-utils/compare/v0.1.23...v0.1.24) - 2025-12-07
 
 ### 🩹 Fixes

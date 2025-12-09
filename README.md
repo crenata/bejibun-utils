@@ -34,15 +34,25 @@ List of available functions.
 - ask()
 - isCommandExists()
 - isModuleExists()
+  
+#### Enum
 - Enum.setEnums(enums).getName()
 - Enum.setEnums(enums).getValue()
 - Enum.setEnums(enums).toArray()
+  
+#### Str
 - Str.toLowerCase()
 - Str.toPascalCase()
 - Str.toUpperCase()
+  
+#### Luxon
 - Luxon.datetime -> DateTime
 - Luxon.duration -> Duration
 - Luxon.interval -> Interval
+  
+#### Object
+- Object.serialize() // convert values into actual value
+- Object.parseFormData() // convert form data into object and auto serialize
 
 ## Contributors
 - [Havea Crenata](mailto:havea.crenata@gmail.com)
