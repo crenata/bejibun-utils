@@ -5,6 +5,7 @@ export default class ObjectBuilder {
     value;
     constructor() {
         this.value = null;
+        this.normalize = this.normalize.bind(this);
     }
     setValue(value) {
         this.value = value;

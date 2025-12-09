@@ -1,12 +1,13 @@
 import ObjectException from "@/exceptions/ObjectException";
 import Luxon from "@/facades/Luxon";
-import {defineValue, isEmpty, isNotEmpty} from "@/utils/utils";
+import {isEmpty, isNotEmpty} from "@/utils/utils";
 
 export default class ObjectBuilder {
     protected value: any;
 
     public constructor() {
         this.value = null;
+        this.normalize = this.normalize.bind(this);
     }
 
     public setValue(value: any): ObjectBuilder {
