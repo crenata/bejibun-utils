@@ -9,7 +9,10 @@ export default class Str {
     static toUpperCase(value, combine) {
         return new StrBuilder().setValue(value).toUpperCase(combine);
     }
-    static random(size) {
-        return new StrBuilder().random(size);
+    static random(size, combine) {
+        return new StrBuilder().random(size, combine);
+    }
+    static ipToFileName(value, combine) {
+        return new StrBuilder().setValue(value).ipToFileName(combine);
     }
 }

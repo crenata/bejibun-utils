@@ -28,12 +28,23 @@ export default class StrBuilder {
             return this;
         return this.value;
     }
-    random(size) {
+    random(size, combine) {
         this.value = [...Array(defineValue(size, 32))]
             .map(() => {
             return (Math.random() * 36 | 0).toString(36);
         })
             .join("");
+        if (isNotEmpty(combine))
+            return this;
+        return this.value;
+    }
+    ipToFileName(combine) {
+        this.value = defineValue(this.value.trim()
+            .replace(/[.:/]/g, "_")
+            .replace(/_+/g, "_")
+            .replace(/^_+|_+$/g, ""), "unknown");
+        if (isNotEmpty(combine))
+            return this;
         return this.value;
     }
 }

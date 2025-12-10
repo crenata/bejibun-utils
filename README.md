@@ -28,31 +28,33 @@ bun ace install @bejibun/utils
 
 ### Available Helpers
 List of available functions.
-- isEmpty()
-- isNotEmpty()
-- defineValue()
-- ask()
-- isCommandExists()
-- isModuleExists()
+- `isEmpty()` Check if variable is empty
+- `isNotEmpty()` Check if variable is not empty
+- `defineValue()` Define value if empty use default value
+- `ask()` Command prompt
+- `isCommandExists()` Check if command available
+- `isModuleExists()` Check if module installed
   
 #### Enum
-- Enum.setEnums(enums).getName()
-- Enum.setEnums(enums).getValue()
-- Enum.setEnums(enums).toArray()
+- `Enum.setEnums(enums).getName()`
+- `Enum.setEnums(enums).getValue()`
+- `Enum.setEnums(enums).toArray()`
   
 #### Str
-- Str.toLowerCase()
-- Str.toPascalCase()
-- Str.toUpperCase()
+- `Str.toLowerCase()` Convert string to lower
+- `Str.toPascalCase()` Convert string to pascal case
+- `Str.toUpperCase()` Convert string to upper
+- `Str.random()` Generate random string
+- `Str.ipToFileName()` Convert IP to correct filename
   
 #### Luxon
-- Luxon.datetime -> DateTime
-- Luxon.duration -> Duration
-- Luxon.interval -> Interval
+- `Luxon.datetime` -> DateTime
+- `Luxon.duration` -> Duration
+- `Luxon.interval` -> Interval
   
 #### Object
-- Object.serialize() // convert values into actual value
-- Object.parseFormData() // convert form data into object and auto serialize
+- `Object.serialize()` Convert values into actual value
+- `Object.parseFormData()` Convert form data into object and auto serialize
 
 ## Contributors
 - [Havea Crenata](mailto:havea.crenata@gmail.com)

@@ -13,7 +13,11 @@ export default class Str {
         return new StrBuilder().setValue(value).toUpperCase(combine);
     }
 
-    public static random(size?: number): string {
-        return new StrBuilder().random(size);
+    public static random(size?: number, combine?: boolean): StrBuilder | string {
+        return new StrBuilder().random(size, combine);
+    }
+
+    public static ipToFileName(value: string, combine?: boolean): StrBuilder | string {
+        return new StrBuilder().setValue(value).ipToFileName(combine);
     }
 }

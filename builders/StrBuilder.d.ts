@@ -5,5 +5,6 @@ export default class StrBuilder {
     toLowerCase(combine?: boolean): StrBuilder | string;
     toPascalCase(combine?: boolean): StrBuilder | string;
     toUpperCase(combine?: boolean): StrBuilder | string;
-    random(size?: number): string;
+    random(size?: number, combine?: boolean): StrBuilder | string;
+    ipToFileName(combine?: boolean): StrBuilder | string;
 }

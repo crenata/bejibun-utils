@@ -39,12 +39,28 @@ export default class StrBuilder {
         return this.value;
     }
 
-    public random(size?: number): string {
+    public random(size?: number, combine?: boolean): StrBuilder | string {
         this.value = [...Array(defineValue(size, 32))]
             .map(() => {
                 return (Math.random() * 36 | 0).toString(36);
             })
             .join("");
+
+        if (isNotEmpty(combine)) return this;
+
+        return this.value;
+    }
+
+    public ipToFileName(combine?: boolean): StrBuilder | string {
+        this.value = defineValue(
+            this.value.trim()
+                .replace(/[.:/]/g, "_")
+                .replace(/_+/g, "_")
+                .replace(/^_+|_+$/g, ""),
+            "unknown"
+        );
+
+        if (isNotEmpty(combine)) return this;
 
         return this.value;
     }
