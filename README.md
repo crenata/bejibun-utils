@@ -36,9 +36,11 @@ List of available functions.
 - `isModuleExists()` Check if module installed
   
 #### Enum
-- `Enum.setEnums(enums).getName()`
-- `Enum.setEnums(enums).getValue()`
-- `Enum.setEnums(enums).toArray()`
+- `Enum.setEnums(enums).getKey()` Get key by value.
+- `Enum.setEnums(enums).getValue()` Get value by key.
+- `Enum.setEnums(enums).toArray()` Convert enums into an array.
+- `Enum.setEnums(enums).hasValue()` Checks if the enum contains the specified value.
+- `Enum.setEnums(enums).hasKey()` Checks if the enum contains the specified key.
   
 #### Str
 - `Str.toLowerCase()` Convert string to lower

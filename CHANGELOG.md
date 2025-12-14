@@ -3,6 +3,24 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [v0.1.28](https://github.com/crenata/bejibun-utils/compare/v0.1.27...v0.1.28) - 2025-12-14
+
+### 🩹 Fixes
+
+### 📖 Changes
+What's New :
+#### Enum
+- Rename `getName()` to `getKey()`
+- `hasValue()` Checks if the enum contains the specified value.
+- `hasKey()` Checks if the enum contains the specified key.
+
+### ❤️Contributors
+- Havea Crenata ([@crenata](https://github.com/crenata))
+
+**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+
+---
+
 ## [v0.1.27](https://github.com/crenata/bejibun-utils/compare/v0.1.25...v0.1.27) - 2025-12-10
 
 ### 🩹 Fixes

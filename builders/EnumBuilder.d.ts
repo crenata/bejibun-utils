@@ -5,7 +5,9 @@ export type EnumItem = {
 export default class EnumBuilder {
     protected enums: any;
     constructor(enums: any);
-    getName(value: number): string | undefined;
-    getValue(key: string): number;
+    getKey(value: any): string | undefined;
+    getValue(key: string): any;
+    hasValue(value: any): boolean;
+    hasKey(key: string): boolean;
     toArray(): Array<any>;
 }

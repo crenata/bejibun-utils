@@ -1,5 +1,5 @@
 import EnumException from "@/exceptions/EnumException";
-import {isEmpty} from "@/utils/utils";
+import {isEmpty, isNotEmpty} from "@/utils/utils";
 
 export type EnumItem = {
     name: string;
@@ -14,17 +14,24 @@ export default class EnumBuilder {
         this.enums = enums;
     }
 
-    public getName(value: number): string | undefined {
+    public getKey(value: any): string | undefined {
         return Object.keys(this.enums).find(item => this.enums[item] === value);
     }
 
-    public getValue(key: string): number {
+    public getValue(key: string): any {
         return this.enums[key];
+    }
+
+    public hasValue(value: any): boolean {
+        return isNotEmpty(this.getKey(value));
+    }
+
+    public hasKey(key: string): boolean {
+        return isNotEmpty(this.getValue(key));
     }
 
     public toArray(): Array<any> {
         return Object.keys(this.enums)
-            .filter(key => isNaN(Number(key)))
             .map(key => ({
                 name: key,
                 value: this.getValue(key)

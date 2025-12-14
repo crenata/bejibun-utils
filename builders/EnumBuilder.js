@@ -1,5 +1,5 @@
 import EnumException from "../exceptions/EnumException";
-import { isEmpty } from "../utils/utils";
+import { isEmpty, isNotEmpty } from "../utils/utils";
 export default class EnumBuilder {
     enums;
     constructor(enums) {
@@ -7,15 +7,20 @@ export default class EnumBuilder {
             throw new EnumException("The enum parameter is required.");
         this.enums = enums;
     }
-    getName(value) {
+    getKey(value) {
         return Object.keys(this.enums).find(item => this.enums[item] === value);
     }
     getValue(key) {
         return this.enums[key];
     }
+    hasValue(value) {
+        return isNotEmpty(this.getKey(value));
+    }
+    hasKey(key) {
+        return isNotEmpty(this.getValue(key));
+    }
     toArray() {
         return Object.keys(this.enums)
-            .filter(key => isNaN(Number(key)))
             .map(key => ({
             name: key,
             value: this.getValue(key)
