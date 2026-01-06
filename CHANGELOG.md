@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## [v0.1.28](https://github.com/crenata/bejibun-utils/compare/v0.1.27...v0.1.28) - 2025-12-14
+## [v0.1.28](https://github.com/Bejibun-Framework/bejibun-utils/compare/v0.1.27...v0.1.28) - 2025-12-14
 
 ### 🩹 Fixes
 
@@ -17,11 +17,11 @@ What's New :
 ### ❤️Contributors
 - Havea Crenata ([@crenata](https://github.com/crenata))
 
-**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+**Full Changelog**: https://github.com/Bejibun-Framework/bejibun-utils/blob/master/CHANGELOG.md
 
 ---
 
-## [v0.1.27](https://github.com/crenata/bejibun-utils/compare/v0.1.25...v0.1.27) - 2025-12-10
+## [v0.1.27](https://github.com/Bejibun-Framework/bejibun-utils/compare/v0.1.25...v0.1.27) - 2025-12-10
 
 ### 🩹 Fixes
 
@@ -32,11 +32,11 @@ What's New :
 ### ❤️Contributors
 - Ghulje ([@ghulje](https://github.com/ghulje))
 
-**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+**Full Changelog**: https://github.com/Bejibun-Framework/bejibun-utils/blob/master/CHANGELOG.md
 
 ---
 
-## [v0.1.25](https://github.com/crenata/bejibun-utils/compare/v0.1.24...v0.1.25) - 2025-12-09
+## [v0.1.25](https://github.com/Bejibun-Framework/bejibun-utils/compare/v0.1.24...v0.1.25) - 2025-12-09
 
 ### 🩹 Fixes
 
@@ -48,14 +48,14 @@ What's New :
 ### ❤️Contributors
 - Ghulje ([@ghulje](https://github.com/ghulje))
 
-**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+**Full Changelog**: https://github.com/Bejibun-Framework/bejibun-utils/blob/master/CHANGELOG.md
 
 ---
 
-## [v0.1.24](https://github.com/crenata/bejibun-utils/compare/v0.1.23...v0.1.24) - 2025-12-07
+## [v0.1.24](https://github.com/Bejibun-Framework/bejibun-utils/compare/v0.1.23...v0.1.24) - 2025-12-07
 
 ### 🩹 Fixes
-- Empty validation for class - [#2](https://github.com/crenata/bejibun-utils/issues/2)
+- Empty validation for class - [#2](https://github.com/Bejibun-Framework/bejibun-utils/issues/2)
   
 Previously `isEmpty` was not working for variable instanceof class, it was give wrong returns.
 
@@ -64,25 +64,25 @@ Previously `isEmpty` was not working for variable instanceof class, it was give 
 ### ❤️Contributors
 - Havea Crenata ([@crenata](https://github.com/crenata))
 
-**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+**Full Changelog**: https://github.com/Bejibun-Framework/bejibun-utils/blob/master/CHANGELOG.md
 
 ---
 
-## [v0.1.23](https://github.com/crenata/bejibun-utils/compare/v0.1.22...v0.1.23) - 2025-12-03
+## [v0.1.23](https://github.com/Bejibun-Framework/bejibun-utils/compare/v0.1.22...v0.1.23) - 2025-12-03
 
 ### 🩹 Fixes
-- Empty validation for file - [#1](https://github.com/crenata/bejibun-utils/issues/1)
+- Empty validation for file - [#1](https://github.com/Bejibun-Framework/bejibun-utils/issues/1)
 
 ### 📖 Changes
 
 ### ❤️Contributors
 - Ghulje ([@ghulje](https://github.com/ghulje))
 
-**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+**Full Changelog**: https://github.com/Bejibun-Framework/bejibun-utils/blob/master/CHANGELOG.md
 
 ---
 
-## [v0.1.22](https://github.com/crenata/bejibun-utils/compare/v0.1.21...v0.1.22) - 2025-11-29
+## [v0.1.22](https://github.com/Bejibun-Framework/bejibun-utils/compare/v0.1.21...v0.1.22) - 2025-11-29
 
 ### 🩹 Fixes
 
@@ -93,11 +93,11 @@ What's New :
 ### ❤️Contributors
 - Havea Crenata ([@crenata](https://github.com/crenata))
 
-**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+**Full Changelog**: https://github.com/Bejibun-Framework/bejibun-utils/blob/master/CHANGELOG.md
 
 ---
 
-## [v0.1.21](https://github.com/crenata/bejibun-utils/compare/v0.1.18...v0.1.21) - 2025-11-14
+## [v0.1.21](https://github.com/Bejibun-Framework/bejibun-utils/compare/v0.1.18...v0.1.21) - 2025-11-14
 
 ### 🩹 Fixes
 
@@ -108,11 +108,11 @@ What's New :
 ### ❤️Contributors
 - Ghulje ([@ghulje](https://github.com/ghulje))
 
-**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+**Full Changelog**: https://github.com/Bejibun-Framework/bejibun-utils/blob/master/CHANGELOG.md
 
 ---
 
-## [v0.1.18](https://github.com/crenata/bejibun-utils/compare/v0.1.17...v0.1.18) - 2025-10-27
+## [v0.1.18](https://github.com/Bejibun-Framework/bejibun-utils/compare/v0.1.17...v0.1.18) - 2025-10-27
 
 ### 🩹 Fixes
 
@@ -137,11 +137,11 @@ Please upgrade to this version carefully.
 ### ❤️Contributors
 - Ghulje ([@ghulje](https://github.com/ghulje))
 
-**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+**Full Changelog**: https://github.com/Bejibun-Framework/bejibun-utils/blob/master/CHANGELOG.md
 
 ---
 
-## [v0.1.17](https://github.com/crenata/bejibun-utils/compare/v0.1.16-rc1...v0.1.17) - 2025-10-23
+## [v0.1.17](https://github.com/Bejibun-Framework/bejibun-utils/compare/v0.1.16-rc1...v0.1.17) - 2025-10-23
 
 ### 🩹 Fixes
 - Fix `isEmpty` check NaN
@@ -151,11 +151,11 @@ Please upgrade to this version carefully.
 ### ❤️Contributors
 - Havea Crenata ([@crenata](https://github.com/crenata))
 
-**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+**Full Changelog**: https://github.com/Bejibun-Framework/bejibun-utils/blob/master/CHANGELOG.md
 
 ---
 
-## [v0.1.16-rc1](https://github.com/crenata/bejibun-utils/compare/v0.1.15...v0.1.16-rc1) - 2025-10-23
+## [v0.1.16-rc1](https://github.com/Bejibun-Framework/bejibun-utils/compare/v0.1.15...v0.1.16-rc1) - 2025-10-23
 
 ### 🩹 Fixes
 
@@ -166,11 +166,11 @@ What's New :
 ### ❤️Contributors
 - Ghulje ([@ghulje](https://github.com/ghulje))
 
-**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+**Full Changelog**: https://github.com/Bejibun-Framework/bejibun-utils/blob/master/CHANGELOG.md
 
 ---
 
-## [v0.1.15](https://github.com/crenata/bejibun-utils/compare/v0.1.14...v0.1.15) - 2025-10-23
+## [v0.1.15](https://github.com/Bejibun-Framework/bejibun-utils/compare/v0.1.14...v0.1.15) - 2025-10-23
 
 ### 🩹 Fixes
 
@@ -182,11 +182,11 @@ What's New :
 - Havea Crenata ([@crenata](https://github.com/crenata))
 - Ghulje ([@ghulje](https://github.com/ghulje))
 
-**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+**Full Changelog**: https://github.com/Bejibun-Framework/bejibun-utils/blob/master/CHANGELOG.md
 
 ---
 
-## [v0.1.14](https://github.com/crenata/bejibun-utils/compare/v0.1.13...v0.1.14) - 2025-10-20
+## [v0.1.14](https://github.com/Bejibun-Framework/bejibun-utils/compare/v0.1.13...v0.1.14) - 2025-10-20
 
 ### 🩹 Fixes
 
@@ -198,11 +198,11 @@ Chore :
 - Havea Crenata ([@crenata](https://github.com/crenata))
 - Ghulje ([@ghulje](https://github.com/ghulje))
 
-**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+**Full Changelog**: https://github.com/Bejibun-Framework/bejibun-utils/blob/master/CHANGELOG.md
 
 ---
 
-## [v0.1.13](https://github.com/crenata/bejibun-utils/compare/v0.1.0...v0.1.13) - 2025-10-19
+## [v0.1.13](https://github.com/Bejibun-Framework/bejibun-utils/compare/v0.1.0...v0.1.13) - 2025-10-19
 
 ### 🩹 Fixes
 
@@ -214,11 +214,11 @@ What's New :
 - Havea Crenata ([@crenata](https://github.com/crenata))
 - Ghulje ([@ghulje](https://github.com/ghulje))
 
-**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+**Full Changelog**: https://github.com/Bejibun-Framework/bejibun-utils/blob/master/CHANGELOG.md
 
 ---
 
-## [v0.1.0](https://github.com/crenata/bejibun-utils/compare/v0.1.0...v0.1.0) - 2025-10-16
+## [v0.1.0](https://github.com/Bejibun-Framework/bejibun-utils/compare/v0.1.0...v0.1.0) - 2025-10-16
 
 ### 🩹 Fixes
 
@@ -230,4 +230,4 @@ What's New :
 - Havea Crenata ([@crenata](https://github.com/crenata))
 - Ghulje ([@ghulje](https://github.com/ghulje))
 
-**Full Changelog**: https://github.com/crenata/bejibun-utils/blob/master/CHANGELOG.md
+**Full Changelog**: https://github.com/Bejibun-Framework/bejibun-utils/blob/master/CHANGELOG.md
