@@ -30,7 +30,7 @@ export default class EnumBuilder {
         return isNotEmpty(this.getValue(key));
     }
 
-    public toArray(): Array<any> {
+    public toArray(): Array<EnumItem> {
         return Object.keys(this.enums)
             .map(key => ({
                 name: key,
