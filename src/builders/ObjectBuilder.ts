@@ -20,7 +20,7 @@ export default class ObjectBuilder {
         return this.normalize(this.value);
     }
 
-    public parseFormData(): Record<string, any> {
+    public parseFormData(raw: boolean = false): Record<string, any> {
         if (!(this.value instanceof FormData)) throw new ObjectException("Invalid form data.");
 
         const result: Record<string, any> = {};
@@ -35,27 +35,8 @@ export default class ObjectBuilder {
                 const nextPart = keys[i + 1];
 
                 if (i === keys.length - 1) {
-                    let convertedValue: any;
-
-                    if (value as unknown instanceof File) {
-                        convertedValue = value;
-                    } else if (value.trim() === "" || value === "null" || value === "undefined") {
-                        convertedValue = null;
-                    } else if (Number.isNaN(value)) {
-                        convertedValue = Number(value);
-                    } else if (value === "true" || value === "false") {
-                        convertedValue = value === "true";
-                    } else {
-                        try {
-                            convertedValue = JSON.parse(value);
-                        } catch {
-                            convertedValue = value;
-                        }
-                    }
-
-                    if (current[part] === undefined) current[part] = convertedValue;
-                    else if (Array.isArray(current[part])) current[part].push(convertedValue);
-                    else continue;
+                    if (current[part] === undefined) current[part] = value;
+                    else if (Array.isArray(current[part])) current[part].push(value);
                 } else {
                     const isArrayIndex = /^\d+$/.test(nextPart);
 
@@ -66,7 +47,7 @@ export default class ObjectBuilder {
             }
         }
 
-        return this.normalize(result);
+        return raw ? result : this.normalize(result);
     }
 
     private normalize(obj: any): any {
@@ -83,7 +64,8 @@ export default class ObjectBuilder {
             typeof obj === "object" &&
             !(obj instanceof File) &&
             Object.keys(obj).length === 0
-        ) return null;
+        )
+            return null;
 
         if (isNotEmpty(obj) && typeof obj === "object" && !(obj instanceof File)) {
             const normalized: Record<string, any> = {};

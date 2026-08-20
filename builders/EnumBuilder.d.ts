@@ -9,5 +9,5 @@ export default class EnumBuilder {
     getValue(key: string): any;
     hasValue(value: any): boolean;
     hasKey(key: string): boolean;
-    toArray(): Array<any>;
+    toArray(): Array<EnumItem>;
 }

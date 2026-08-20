@@ -22,7 +22,10 @@ export default class StrBuilder {
     }
 
     public toPascalCase(combine?: boolean): StrBuilder | string {
-        this.value = defineValue(this.value.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g), [])
+        this.value = defineValue(
+            this.value.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g),
+            []
+        )
             .map((x: string) => x.slice(0, 1).toUpperCase() + x.slice(1).toLowerCase())
             .join("");
 
@@ -42,7 +45,7 @@ export default class StrBuilder {
     public random(size?: number, combine?: boolean): StrBuilder | string {
         this.value = [...Array(defineValue(size, 32))]
             .map(() => {
-                return (Math.random() * 36 | 0).toString(36);
+                return ((Math.random() * 36) | 0).toString(36);
             })
             .join("");
 
@@ -53,7 +56,8 @@ export default class StrBuilder {
 
     public ipToFileName(combine?: boolean): StrBuilder | string {
         this.value = defineValue(
-            this.value.trim()
+            this.value
+                .trim()
                 .replace(/[.:/]/g, "_")
                 .replace(/_+/g, "_")
                 .replace(/^_+|_+$/g, ""),

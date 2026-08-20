@@ -8,8 +8,10 @@ export const isEmpty = (value: any): boolean => {
     if (typeof value === "bigint") return value === 0n;
     if (typeof value === "string") return Bun.stringWidth(value.trim()) === 0;
     if (Array.isArray(value)) return value.length === 0;
-    if (value instanceof Blob || value instanceof Map || value instanceof Set) return value.size === 0;
-    if (Object.prototype.toString.call(value) === "[object Object]") return Object.keys(value).length === 0;
+    if (value instanceof Blob || value instanceof Map || value instanceof Set)
+        return value.size === 0;
+    if (Object.prototype.toString.call(value) === "[object Object]")
+        return Object.keys(value).length === 0;
 
     return false;
 };
@@ -30,7 +32,7 @@ export const ask = (question: string): Promise<string> => {
         output: process.stdout
     });
 
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
         return rl.question(question, (answer: string) => {
             rl.close();
 
@@ -51,7 +53,7 @@ export const isModuleExists = (module: string): boolean => {
         require.resolve(module);
 
         return true;
-    } catch (error: any) {
+    } catch {
         return false;
     }
 };

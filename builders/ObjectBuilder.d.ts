@@ -3,6 +3,6 @@ export default class ObjectBuilder {
     constructor();
     setValue(value: any): ObjectBuilder;
     serialize(): any;
-    parseFormData(): Record<string, any>;
+    parseFormData(raw?: boolean): Record<string, any>;
     private normalize;
 }

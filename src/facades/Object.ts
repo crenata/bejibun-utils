@@ -5,7 +5,7 @@ export default class Object {
         return new ObjectBuilder().setValue(value).serialize();
     }
 
-    public static parseFormData(value: FormData): any {
-        return new ObjectBuilder().setValue(value).parseFormData();
+    public static parseFormData(value: FormData, raw: boolean = false): any {
+        return new ObjectBuilder().setValue(value).parseFormData(raw);
     }
 }

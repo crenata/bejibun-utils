@@ -8,7 +8,7 @@ export default class EnumBuilder {
         this.enums = enums;
     }
     getKey(value) {
-        return Object.keys(this.enums).find(item => this.enums[item] === value);
+        return Object.keys(this.enums).find((item) => this.enums[item] === value);
     }
     getValue(key) {
         return this.enums[key];
@@ -20,8 +20,7 @@ export default class EnumBuilder {
         return isNotEmpty(this.getValue(key));
     }
     toArray() {
-        return Object.keys(this.enums)
-            .map(key => ({
+        return Object.keys(this.enums).map((key) => ({
             name: key,
             value: this.getValue(key)
         }));

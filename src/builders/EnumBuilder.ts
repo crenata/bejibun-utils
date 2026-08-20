@@ -4,7 +4,7 @@ import {isEmpty, isNotEmpty} from "@/utils/utils";
 export type EnumItem = {
     name: string;
     value: any;
-}
+};
 
 export default class EnumBuilder {
     protected enums: any;
@@ -15,7 +15,7 @@ export default class EnumBuilder {
     }
 
     public getKey(value: any): string | undefined {
-        return Object.keys(this.enums).find(item => this.enums[item] === value);
+        return Object.keys(this.enums).find((item) => this.enums[item] === value);
     }
 
     public getValue(key: string): any {
@@ -31,10 +31,9 @@ export default class EnumBuilder {
     }
 
     public toArray(): Array<EnumItem> {
-        return Object.keys(this.enums)
-            .map(key => ({
-                name: key,
-                value: this.getValue(key)
-            }));
+        return Object.keys(this.enums).map((key) => ({
+            name: key,
+            value: this.getValue(key)
+        }));
     }
 }

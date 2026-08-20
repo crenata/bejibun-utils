@@ -14,7 +14,7 @@ export default class ObjectBuilder {
     serialize() {
         return this.normalize(this.value);
     }
-    parseFormData() {
+    parseFormData(raw = false) {
         if (!(this.value instanceof FormData))
             throw new ObjectException("Invalid form data.");
         const result = {};
@@ -25,33 +25,10 @@ export default class ObjectBuilder {
                 const part = keys[i];
                 const nextPart = keys[i + 1];
                 if (i === keys.length - 1) {
-                    let convertedValue;
-                    if (value instanceof File) {
-                        convertedValue = value;
-                    }
-                    else if (value.trim() === "" || value === "null" || value === "undefined") {
-                        convertedValue = null;
-                    }
-                    else if (Number.isNaN(value)) {
-                        convertedValue = Number(value);
-                    }
-                    else if (value === "true" || value === "false") {
-                        convertedValue = value === "true";
-                    }
-                    else {
-                        try {
-                            convertedValue = JSON.parse(value);
-                        }
-                        catch {
-                            convertedValue = value;
-                        }
-                    }
                     if (current[part] === undefined)
-                        current[part] = convertedValue;
+                        current[part] = value;
                     else if (Array.isArray(current[part]))
-                        current[part].push(convertedValue);
-                    else
-                        continue;
+                        current[part].push(value);
                 }
                 else {
                     const isArrayIndex = /^\d+$/.test(nextPart);
@@ -61,7 +38,7 @@ export default class ObjectBuilder {
                 }
             }
         }
-        return this.normalize(result);
+        return raw ? result : this.normalize(result);
     }
     normalize(obj) {
         if (Array.isArray(obj))

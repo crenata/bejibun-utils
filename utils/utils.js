@@ -33,7 +33,7 @@ export const ask = (question) => {
         input: process.stdin,
         output: process.stdout
     });
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
         return rl.question(question, (answer) => {
             rl.close();
             resolve(answer.trim());
@@ -50,7 +50,7 @@ export const isModuleExists = (module) => {
         require.resolve(module);
         return true;
     }
-    catch (error) {
+    catch {
         return false;
     }
 };
