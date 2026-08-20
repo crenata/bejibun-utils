@@ -3,6 +3,48 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [v0.1.29](https://github.com/Bejibun-Framework/bejibun-utils/compare/v0.1.28...v0.1.29) - 2026-08-20
+
+### 🩹 Fixes
+#### `ObjectBuilder.parseFormData()`
+Removed the manual per-field type conversion that ran while walking `FormData` entries -- it duplicated (and partially conflicted with) the coercion already done by `normalize()`, including a no-op `Number.isNaN(value)` check that never actually converted numeric strings.
+
+### 📖 Changes
+#### `ObjectBuilder.parseFormData(raw?: boolean)` / `Object.parseFormData(value, raw?: boolean)`
+Added an optional `raw` parameter (default `false`) to skip the final `normalize()` pass and return the parsed structure with its original string values.
+
+**Example:**
+```ts
+import Object from "@bejibun/utils/facades/Object";
+ 
+Object.parseFormData(formData); // normalized: numbers, booleans, nulls, dates coerced
+Object.parseFormData(formData, true); // raw: values kept as submitted
+```
+
+#### Tooling
+- Added `prettier` + `.prettierrc.json` / `.prettierignore` and an `eslint.config.js` (flat config, `typescript-eslint`) for consistent formatting/linting across `src`
+- Added `bun run format`, `bun run eslint`, and `bun run lint` scripts; `bun run build` now runs `lint` before compiling
+- `alias` script now runs `tsc-alias` directly instead of via `bunx`
+
+### 📦 Dependencies
+
+- Bumped `@types/luxon` from `^3.7.1` to `^3.7.4`
+- Bumped `tsc-alias` (devDependency) from `^1.8.16` to `^1.9.2`
+- Added `@eslint/js` (devDependency) `^10.0.1`
+- Added `eslint` (devDependency) `^10.8.1`
+- Added `eslint-config-prettier` (devDependency) `^10.1.8`
+- Added `globals` (devDependency) `^17.11.0`
+- Added `prettier` (devDependency) `^3.9.6`
+- Added `typescript` (devDependency) `^6.0.3`
+- Added `typescript-eslint` (devDependency) `^8.67.0`
+
+### ❤️Contributors
+- Havea Crenata ([@crenata](https://github.com/crenata))
+
+**Full Changelog**: https://github.com/Bejibun-Framework/bejibun-utils/blob/master/CHANGELOG.md
+
+---
+
 ## [v0.1.28](https://github.com/Bejibun-Framework/bejibun-utils/compare/v0.1.27...v0.1.28) - 2025-12-14
 
 ### 🩹 Fixes
