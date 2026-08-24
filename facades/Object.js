@@ -12,15 +12,41 @@ export default class Object {
     static serialize(value) {
         return new ObjectBuilder().setValue(value).serialize();
     }
+    /**
+     * Returns a new object containing only the specified keys.
+     *
+     * @param {Record<string, any>} value - The source object.
+     * @param {Array<string>} keys - The keys to retain.
+     * @returns {Record<string, any>} A filtered copy containing only the given keys.
+     */
     static only(value, keys) {
         return new ObjectBuilder().setValue(value).only(keys);
     }
+    /**
+     * Returns a new object with the specified keys excluded.
+     *
+     * @param {Record<string, any>} value - The source object.
+     * @param {Array<string>} keys - The keys to remove.
+     * @returns {Record<string, any>} A filtered copy excluding the given keys.
+     */
     static except(value, keys) {
         return new ObjectBuilder().setValue(value).except(keys);
     }
+    /**
+     * Returns the first property value of the object.
+     *
+     * @param {Record<string, any>} value - The source object.
+     * @returns {any | undefined} The first value, or undefined when empty.
+     */
     static first(value) {
         return new ObjectBuilder().setValue(value).first();
     }
+    /**
+     * Returns the last property value of the object.
+     *
+     * @param {Record<string, any>} value - The source object.
+     * @returns {any | undefined} The last value, or undefined when empty.
+     */
     static last(value) {
         return new ObjectBuilder().setValue(value).last();
     }

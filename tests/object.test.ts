@@ -1,11 +1,4 @@
-import {
-    afterEach,
-    beforeEach,
-    describe,
-    expect,
-    mock,
-    test
-} from "bun:test";
+import {afterEach, beforeEach, describe, expect, mock, test} from "bun:test";
 import ObjectFacade from "../src/facades/Object";
 
 describe("Object.serialize", () => {
@@ -47,6 +40,40 @@ describe("Object.serialize", () => {
 
     test("arrays are normalized element-wise", () => {
         expect(ObjectFacade.serialize(["1", "2"])).toEqual([1, 2]);
+    });
+});
+
+describe("Object key helpers", () => {
+    test("only keeps the given keys", () => {
+        expect(ObjectFacade.only({a: 1, b: 2, c: 3}, ["a", "c"])).toEqual({a: 1, c: 3});
+    });
+
+    test("only ignores missing keys", () => {
+        expect(ObjectFacade.only({a: 1}, ["a", "z"])).toEqual({a: 1});
+    });
+
+    test("except removes the given keys", () => {
+        expect(ObjectFacade.except({a: 1, b: 2, c: 3}, ["b"])).toEqual({a: 1, c: 3});
+    });
+
+    test("except returns original when no keys match", () => {
+        expect(ObjectFacade.except({a: 1}, ["z"])).toEqual({a: 1});
+    });
+
+    test("first returns the first property value", () => {
+        expect(ObjectFacade.first({a: 1, b: 2})).toBe(1);
+    });
+
+    test("first returns undefined for empty object", () => {
+        expect(ObjectFacade.first({})).toBeUndefined();
+    });
+
+    test("last returns the last property value", () => {
+        expect(ObjectFacade.last({a: 1, b: 2})).toBe(2);
+    });
+
+    test("last returns undefined for empty object", () => {
+        expect(ObjectFacade.last({})).toBeUndefined();
     });
 });
 

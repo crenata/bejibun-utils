@@ -1,4 +1,4 @@
-import {expect, test, describe} from "bun:test";
+import {describe, expect, test} from "bun:test";
 import StrBuilder from "../src/builders/StrBuilder";
 import Str from "../src/facades/Str";
 
@@ -31,6 +31,68 @@ describe("Str", () => {
 
     test("ipToFileName falls back to unknown when blank", () => {
         expect(Str.ipToFileName("")).toBe("unknown");
+    });
+
+    test("toSnakeCase converts camelCase", () => {
+        expect(Str.toSnakeCase("helloWorld")).toBe("hello_world");
+    });
+
+    test("toSnakeCase preserves acronyms", () => {
+        expect(Str.toSnakeCase("HTTPRequest")).toBe("http_request");
+    });
+
+    test("toSnakeCase honors a custom delimiter", () => {
+        expect(Str.toSnakeCase("helloWorld", "-")).toBe("hello-world");
+    });
+
+    test("toCamelCase converts snake_case", () => {
+        expect(Str.toCamelCase("hello_world")).toBe("helloWorld");
+    });
+
+    test("toCamelCase converts kebab-case", () => {
+        expect(Str.toCamelCase("hello-world")).toBe("helloWorld");
+    });
+
+    test("toCamelCase lowercases input without separators", () => {
+        expect(Str.toCamelCase("HelloWorld")).toBe("helloworld");
+    });
+
+    test("startsWith true for matching prefix", () => {
+        expect(Str.startsWith("hello world", "hello")).toBe(true);
+    });
+
+    test("startsWith false for non-matching prefix", () => {
+        expect(Str.startsWith("hello world", "world")).toBe(false);
+    });
+
+    test("startsWith accepts an array of needles", () => {
+        expect(Str.startsWith("hello world", ["hey", "hello"])).toBe(true);
+        expect(Str.startsWith("hello world", ["hey", "no"])).toBe(false);
+    });
+
+    test("endsWith true for matching suffix", () => {
+        expect(Str.endsWith("hello world", "world")).toBe(true);
+    });
+
+    test("endsWith false for non-matching suffix", () => {
+        expect(Str.endsWith("hello world", "hello")).toBe(false);
+    });
+
+    test("endsWith accepts an array of needles", () => {
+        expect(Str.endsWith("hello world", ["planet", "world"])).toBe(true);
+    });
+
+    test("contains true for substring", () => {
+        expect(Str.contains("hello world", "wor")).toBe(true);
+    });
+
+    test("contains false for non-substring", () => {
+        expect(Str.contains("hello world", "planet")).toBe(false);
+    });
+
+    test("contains accepts an array of needles", () => {
+        expect(Str.contains("hello world", ["hey", "world"])).toBe(true);
+        expect(Str.contains("hello world", ["hey", "mars"])).toBe(false);
     });
 });
 

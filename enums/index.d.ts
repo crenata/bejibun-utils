@@ -1,1 +1,1 @@
-export * from "../enums/HttpMethodEnum";
+export { default as HttpMethodEnum } from "../enums/HttpMethodEnum";

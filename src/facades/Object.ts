@@ -14,18 +14,44 @@ export default class Object {
         return new ObjectBuilder().setValue(value).serialize();
     }
 
+    /**
+     * Returns a new object containing only the specified keys.
+     *
+     * @param {Record<string, any>} value - The source object.
+     * @param {Array<string>} keys - The keys to retain.
+     * @returns {Record<string, any>} A filtered copy containing only the given keys.
+     */
     public static only(value: Record<string, any>, keys: Array<string>): Record<string, any> {
         return new ObjectBuilder().setValue(value).only(keys);
     }
 
+    /**
+     * Returns a new object with the specified keys excluded.
+     *
+     * @param {Record<string, any>} value - The source object.
+     * @param {Array<string>} keys - The keys to remove.
+     * @returns {Record<string, any>} A filtered copy excluding the given keys.
+     */
     public static except(value: Record<string, any>, keys: Array<string>): Record<string, any> {
         return new ObjectBuilder().setValue(value).except(keys);
     }
 
+    /**
+     * Returns the first property value of the object.
+     *
+     * @param {Record<string, any>} value - The source object.
+     * @returns {any | undefined} The first value, or undefined when empty.
+     */
     public static first(value: Record<string, any>): any | undefined {
         return new ObjectBuilder().setValue(value).first();
     }
 
+    /**
+     * Returns the last property value of the object.
+     *
+     * @param {Record<string, any>} value - The source object.
+     * @returns {any | undefined} The last value, or undefined when empty.
+     */
     public static last(value: Record<string, any>): any | undefined {
         return new ObjectBuilder().setValue(value).last();
     }

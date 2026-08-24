@@ -1,3 +1,3 @@
-export * from "../exceptions/ArrException";
-export * from "../exceptions/EnumException";
-export * from "../exceptions/ObjectException";
+export { default as ArrException } from "../exceptions/ArrException";
+export { default as EnumException } from "../exceptions/EnumException";
+export { default as ObjectException } from "../exceptions/ObjectException";

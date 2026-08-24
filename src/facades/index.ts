@@ -1,9 +1,9 @@
-export * from "@/facades/Arr";
+export {default as Arr} from "@/facades/Arr";
 
-export * from "@/facades/Enum";
+export {default as Enum} from "@/facades/Enum";
 
-export * from "@/facades/Luxon";
+export {default as Luxon} from "@/facades/Luxon";
 
-export * from "@/facades/Object";
+export {default as Object} from "@/facades/Object";
 
-export * from "@/facades/Str";
+export {default as Str} from "@/facades/Str";
