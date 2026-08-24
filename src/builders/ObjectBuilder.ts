@@ -2,24 +2,81 @@ import ObjectException from "@/exceptions/ObjectException";
 import Luxon from "@/facades/Luxon";
 import {isEmpty, isNotEmpty} from "@/utils/utils";
 
+/**
+ * Fluent builder for normalizing raw data (FormData, plain values, Date/Luxon
+ * instances) into a consistent, JSON-friendly structure.
+ */
 export default class ObjectBuilder {
-    protected value: any;
+    protected value: Record<string, any>;
 
     public constructor() {
-        this.value = null;
-        this.normalize = this.normalize.bind(this);
+        this.value = {};
     }
 
-    public setValue(value: any): ObjectBuilder {
+    /**
+     * Sets the value under transformation.
+     *
+     * @param {any} value - The value to assign.
+     * @returns {ObjectBuilder} The current builder instance.
+     */
+    public setValue(value: Record<string, any>): ObjectBuilder {
         this.value = value;
 
         return this;
     }
 
+    public only(keys: Array<string>): Record<string, any> {
+        const result: Record<string, any> = {};
+
+        for (const key of keys) {
+            if (Object.prototype.hasOwnProperty.call(this.value, key)) {
+                result[key] = this.value[key];
+            }
+        }
+
+        return result;
+    }
+
+    public except(keys: Array<string>): Record<string, any> {
+        const result: Record<string, any> = {};
+        const blacklist: Set<string> = new Set(keys);
+
+        for (const key of Object.keys(this.value)) {
+            if (!blacklist.has(key)) {
+                result[key] = this.value[key];
+            }
+        }
+
+        return result;
+    }
+
+    public first(): any | undefined {
+        const keys: Array<string> = Object.keys(this.value);
+
+        return keys.length ? this.value[keys[0]] : undefined;
+    }
+
+    public last(): any | undefined {
+        const keys: Array<string> = Object.keys(this.value);
+
+        return keys.length ? this.value[keys[keys.length - 1]] : undefined;
+    }
+
+    /**
+     * Normalizes the stored value into a JSON-friendly structure.
+     *
+     * @returns {any} The normalized value.
+     */
     public serialize(): any {
         return this.normalize(this.value);
     }
 
+    /**
+     * Parses a FormData instance into a nested object.
+     *
+     * @param {boolean} raw - When true, returns the raw parsed object without normalization.
+     * @returns {Record<string, any>} The parsed form payload.
+     */
     public parseFormData(raw: boolean = false): Record<string, any> {
         if (!(this.value instanceof FormData)) throw new ObjectException("Invalid form data.");
 
@@ -50,6 +107,13 @@ export default class ObjectBuilder {
         return raw ? result : this.normalize(result);
     }
 
+    /**
+     * Recursively normalizes a value: dates/Luxon instances to ISO strings,
+     * numeric/bool-like strings to primitives, empty containers to null.
+     *
+     * @param {any} obj - The value to normalize.
+     * @returns {any} The normalized value.
+     */
     private normalize(obj: any): any {
         if (Array.isArray(obj)) return obj.map(this.normalize);
 

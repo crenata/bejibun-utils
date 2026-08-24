@@ -1,7 +1,7 @@
 import Logger from "@bejibun/logger";
 import {defineValue} from "@/utils/utils";
 
-export default class ObjectException extends Error {
+export default class ArrException extends Error {
     /** Numeric HTTP-style error code attached to the exception. */
     public code: number;
 
@@ -11,13 +11,13 @@ export default class ObjectException extends Error {
      */
     public constructor(message?: string, code?: number) {
         super(message);
-        this.name = "ObjectException";
+        this.name = "ArrException";
         this.code = defineValue(code, 500);
 
         Logger.setContext(this.name).error(this.message).trace(this.stack);
 
         if (Error.captureStackTrace) {
-            Error.captureStackTrace(this, ObjectException);
+            Error.captureStackTrace(this, ArrException);
         }
     }
 }

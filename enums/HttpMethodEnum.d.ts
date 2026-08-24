@@ -1,3 +1,6 @@
+/**
+ * HTTP request method constants.
+ */
 declare enum HttpMethodEnum {
     Connect = "CONNECT",
     Delete = "DELETE",

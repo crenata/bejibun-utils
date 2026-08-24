@@ -1,4 +1,9 @@
-import readline from "readline";
+/**
+ * Checks if a value is considered empty.
+ *
+ * @param {any} value - The value to check.
+ * @returns {boolean} True if the value is empty, otherwise false.
+ */
 export const isEmpty = (value) => {
     if (value === undefined)
         return true;
@@ -20,15 +25,35 @@ export const isEmpty = (value) => {
         return Object.keys(value).length === 0;
     return false;
 };
+/**
+ * Checks if a value is not empty (inverse of isEmpty).
+ *
+ * @param {any} value - The value to check.
+ * @returns {boolean} True if the value is not empty, otherwise false.
+ */
 export const isNotEmpty = (value) => {
     return !isEmpty(value);
 };
+/**
+ * Returns the value if it is not empty, otherwise returns the default value.
+ *
+ * @param {any} value - The value to evaluate.
+ * @param {any} defaultValue - The fallback returned when the value is empty.
+ * @returns {any} The original value, or the default.
+ */
 export const defineValue = (value, defaultValue = null) => {
     if (isNotEmpty(value))
         return value;
     return defaultValue;
 };
+/**
+ * Prompts the user for a line of input on stdin.
+ *
+ * @param {string} question - The prompt displayed to the user.
+ * @returns {Promise<string>} The trimmed answer typed by the user.
+ */
 export const ask = (question) => {
+    const readline = require("readline");
     const rl = readline.createInterface({
         input: process.stdin,
         output: process.stdout
@@ -40,11 +65,25 @@ export const ask = (question) => {
         });
     });
 };
+/**
+ * Checks whether a command is available on the system PATH.
+ * Results are cached so the lookup is performed only once per command.
+ *
+ * @param {string} command - The command name to look up (e.g. "bun").
+ * @returns {boolean} True when the command exists, otherwise false.
+ */
 export const isCommandExists = (command) => {
     const isWindows = process.platform === "win32";
     const checker = isWindows ? "where" : "which";
     return Bun.spawnSync([checker, command]).exitCode === 0;
 };
+/**
+ * Checks whether a Node module can be resolved.
+ * Results are cached so the lookup is performed only once per module.
+ *
+ * @param {string} module - The module name or path to resolve.
+ * @returns {boolean} True when the module resolves, otherwise false.
+ */
 export const isModuleExists = (module) => {
     try {
         require.resolve(module);

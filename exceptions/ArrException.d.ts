@@ -1,4 +1,4 @@
-export default class ObjectException extends Error {
+export default class ArrException extends Error {
     /** Numeric HTTP-style error code attached to the exception. */
     code: number;
     /**

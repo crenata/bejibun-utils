@@ -1,19 +1,28 @@
-import {
-    DateTime as LuxonDateTime,
-    Duration as LuxonDuration,
-    Interval as LuxonInterval
-} from "luxon";
-
+/**
+ * Facade exposing Luxon types via lazy getters.
+ *
+ * Luxon is required only when a getter is accessed, so merely importing this
+ * facade does not pay Luxon's cold-start cost.
+ */
 export default class Luxon {
-    public static get DateTime(): typeof LuxonDateTime {
-        return LuxonDateTime;
+    /**
+     * @returns {typeof import("luxon").DateTime} The Luxon DateTime type.
+     */
+    public static get DateTime() {
+        return require("luxon").DateTime;
     }
 
-    public static get Duration(): typeof LuxonDuration {
-        return LuxonDuration;
+    /**
+     * @returns {typeof import("luxon").Duration} The Luxon Duration type.
+     */
+    public static get Duration() {
+        return require("luxon").Duration;
     }
 
-    public static get Interval(): typeof LuxonInterval {
-        return LuxonInterval;
+    /**
+     * @returns {typeof import("luxon").Interval} The Luxon Interval type.
+     */
+    public static get Interval() {
+        return require("luxon").Interval;
     }
 }

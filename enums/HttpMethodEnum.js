@@ -1,3 +1,6 @@
+/**
+ * HTTP request method constants.
+ */
 var HttpMethodEnum;
 (function (HttpMethodEnum) {
     HttpMethodEnum["Connect"] = "CONNECT";

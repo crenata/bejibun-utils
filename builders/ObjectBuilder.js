@@ -1,19 +1,66 @@
 import ObjectException from "../exceptions/ObjectException";
 import Luxon from "../facades/Luxon";
 import { isEmpty, isNotEmpty } from "../utils/utils";
+/**
+ * Fluent builder for normalizing raw data (FormData, plain values, Date/Luxon
+ * instances) into a consistent, JSON-friendly structure.
+ */
 export default class ObjectBuilder {
     value;
     constructor() {
-        this.value = null;
-        this.normalize = this.normalize.bind(this);
+        this.value = {};
     }
+    /**
+     * Sets the value under transformation.
+     *
+     * @param {any} value - The value to assign.
+     * @returns {ObjectBuilder} The current builder instance.
+     */
     setValue(value) {
         this.value = value;
         return this;
     }
+    only(keys) {
+        const result = {};
+        for (const key of keys) {
+            if (Object.prototype.hasOwnProperty.call(this.value, key)) {
+                result[key] = this.value[key];
+            }
+        }
+        return result;
+    }
+    except(keys) {
+        const result = {};
+        const blacklist = new Set(keys);
+        for (const key of Object.keys(this.value)) {
+            if (!blacklist.has(key)) {
+                result[key] = this.value[key];
+            }
+        }
+        return result;
+    }
+    first() {
+        const keys = Object.keys(this.value);
+        return keys.length ? this.value[keys[0]] : undefined;
+    }
+    last() {
+        const keys = Object.keys(this.value);
+        return keys.length ? this.value[keys[keys.length - 1]] : undefined;
+    }
+    /**
+     * Normalizes the stored value into a JSON-friendly structure.
+     *
+     * @returns {any} The normalized value.
+     */
     serialize() {
         return this.normalize(this.value);
     }
+    /**
+     * Parses a FormData instance into a nested object.
+     *
+     * @param {boolean} raw - When true, returns the raw parsed object without normalization.
+     * @returns {Record<string, any>} The parsed form payload.
+     */
     parseFormData(raw = false) {
         if (!(this.value instanceof FormData))
             throw new ObjectException("Invalid form data.");
@@ -40,6 +87,13 @@ export default class ObjectBuilder {
         }
         return raw ? result : this.normalize(result);
     }
+    /**
+     * Recursively normalizes a value: dates/Luxon instances to ISO strings,
+     * numeric/bool-like strings to primitives, empty containers to null.
+     *
+     * @param {any} obj - The value to normalize.
+     * @returns {any} The normalized value.
+     */
     normalize(obj) {
         if (Array.isArray(obj))
             return obj.map(this.normalize);

@@ -10,9 +10,9 @@
     "module": "index.js",
     "devDependencies": {
         "@eslint/js": "^10.0.1",
-        "@types/bun": "latest",
-        "@types/luxon": "^3.7.4",
-        "eslint": "^10.8.1",
+        "@types/bun": "1.4.0",
+        "@types/luxon": "^3.7.5",
+        "eslint": "^10.9.0",
         "eslint-config-prettier": "^10.1.8",
         "globals": "^17.11.0",
         "prettier": "^3.9.6",
@@ -40,13 +40,14 @@
         "format": "prettier --write src --log-level=silent",
         "eslint": "eslint src",
         "lint": "bun run format && bun run eslint",
+        "test": "bun test tests/",
         "build": "bun run lint && tsc -p tsconfig.json && bun run alias && bun run rsync && bun run clean",
         "deploy": "bun run build && bun publish --access public"
     },
     "type": "module",
     "types": "index.d.ts",
     "dependencies": {
-        "@bejibun/logger": "^0.1.22",
+        "@bejibun/logger": "^0.2.0",
         "luxon": "^3.7.2"
     }
 }
