@@ -6,6 +6,7 @@
  * `combine` flag.
  */
 export default class StrBuilder {
+    /** The working string value under transformation. */
     protected value: string;
     constructor();
     /**

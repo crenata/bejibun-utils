@@ -7,6 +7,7 @@ import ArrException from "@/exceptions/ArrException";
  * directly.
  */
 export default class ArrBuilder {
+    /** The working array of values under transformation. */
     protected values: Array<any>;
 
     public constructor() {
@@ -35,7 +36,9 @@ export default class ArrBuilder {
      * @returns {Array<any>} A filtered copy containing only the given indices.
      */
     public only(keys: Array<string>): Array<any> {
-        return this.values.filter((_, index: number) => keys.includes(String(index)));
+        const keySet: Set<string> = new Set(keys);
+
+        return this.values.filter((_, index: number) => keySet.has(String(index)));
     }
 
     /**
@@ -45,7 +48,9 @@ export default class ArrBuilder {
      * @returns {Array<any>} A filtered copy excluding the given indices.
      */
     public except(keys: Array<string>): Array<any> {
-        return this.values.filter((_, index: number) => !keys.includes(String(index)));
+        const keySet: Set<string> = new Set(keys);
+
+        return this.values.filter((_, index: number) => !keySet.has(String(index)));
     }
 
     /**

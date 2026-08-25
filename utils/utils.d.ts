@@ -27,13 +27,6 @@ export declare const defineValue: (value: any, defaultValue?: any) => any;
  * @returns {Promise<string>} The trimmed answer typed by the user.
  */
 export declare const ask: (question: string) => Promise<string>;
-/**
- * Checks whether a command is available on the system PATH.
- * Results are cached so the lookup is performed only once per command.
- *
- * @param {string} command - The command name to look up (e.g. "bun").
- * @returns {boolean} True when the command exists, otherwise false.
- */
 export declare const isCommandExists: (command: string) => boolean;
 /**
  * Checks whether a Node module can be resolved.

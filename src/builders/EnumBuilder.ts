@@ -1,16 +1,12 @@
+import type {EnumItem} from "@/types/enum";
 import EnumException from "@/exceptions/EnumException";
 import {isEmpty, isNotEmpty} from "@/utils/utils";
-
-export type EnumItem = {
-    name: string;
-
-    value: any;
-};
 
 /**
  * Fluent builder that provides lookup helpers over a single enum definition.
  */
 export default class EnumBuilder {
+    /** The enum object being introspected. */
     protected enums: any;
 
     /**

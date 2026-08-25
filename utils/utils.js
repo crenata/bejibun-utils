@@ -16,7 +16,7 @@ export const isEmpty = (value) => {
     if (typeof value === "bigint")
         return value === 0n;
     if (typeof value === "string")
-        return Bun.stringWidth(value.trim()) === 0;
+        return value.trim() === "";
     if (Array.isArray(value))
         return value.length === 0;
     if (value instanceof Blob || value instanceof Map || value instanceof Set)
@@ -72,10 +72,15 @@ export const ask = (question) => {
  * @param {string} command - The command name to look up (e.g. "bun").
  * @returns {boolean} True when the command exists, otherwise false.
  */
+const commandCache = new Map();
 export const isCommandExists = (command) => {
+    if (commandCache.has(command))
+        return commandCache.get(command);
     const isWindows = process.platform === "win32";
     const checker = isWindows ? "where" : "which";
-    return Bun.spawnSync([checker, command]).exitCode === 0;
+    const exists = Bun.spawnSync([checker, command]).exitCode === 0;
+    commandCache.set(command, exists);
+    return exists;
 };
 /**
  * Checks whether a Node module can be resolved.

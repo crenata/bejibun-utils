@@ -26,37 +26,73 @@ bun add @bejibun/utils
 bun ace install @bejibun/utils
 ```
 
+### Deep Imports
+For smaller bundles and faster cold starts, prefer deep imports instead of the root barrel:
+
+```ts
+import Arr from "@bejibun/utils/facades/Arr";
+import Str from "@bejibun/utils/facades/Str";
+import Object from "@bejibun/utils/facades/Object";
+import Enum from "@bejibun/utils/facades/Enum";
+import Luxon from "@bejibun/utils/facades/Luxon";
+import {isEmpty, isNotEmpty, defineValue} from "@bejibun/utils/utils";
+```
+
 ### Available Helpers
-List of available functions.
-- `isEmpty()` Check if variable is empty
-- `isNotEmpty()` Check if variable is not empty
-- `defineValue()` Define value if empty use default value
-- `ask()` Command prompt
-- `isCommandExists()` Check if command available
-- `isModuleExists()` Check if module installed
-  
+
+#### Utilities
+- `isEmpty(value)` Check if variable is empty
+- `isNotEmpty(value)` Check if variable is not empty
+- `defineValue(value, defaultValue)` Return value if not empty, otherwise default
+- `ask(question)` Prompt user for input on stdin
+- `isCommandExists(command)` Check if command is available on PATH (cached)
+- `isModuleExists(module)` Check if Node module can be resolved
+
 #### Enum
-- `Enum.setEnums(enums).getKey()` Get key by value.
-- `Enum.setEnums(enums).getValue()` Get value by key.
-- `Enum.setEnums(enums).toArray()` Convert enums into an array.
-- `Enum.setEnums(enums).hasValue()` Checks if the enum contains the specified value.
-- `Enum.setEnums(enums).hasKey()` Checks if the enum contains the specified key.
-  
+- `Enum.setEnums(enums)` Create a builder for the given enum
+
+The builder exposes:
+- `.getKey(value)` Get key by value
+- `.getValue(key)` Get value by key
+- `.hasKey(key)` Check if the enum contains the specified key
+- `.hasValue(value)` Check if the enum contains the specified value
+
 #### Str
-- `Str.toLowerCase()` Convert string to lower
-- `Str.toPascalCase()` Convert string to pascal case
-- `Str.toUpperCase()` Convert string to upper
-- `Str.random()` Generate random string
-- `Str.ipToFileName()` Convert IP to correct filename
-  
-#### Luxon
-- `Luxon.datetime` -> DateTime
-- `Luxon.duration` -> Duration
-- `Luxon.interval` -> Interval
-  
+- `Str.toLowerCase(value)` Convert string to lowercase
+- `Str.toUpperCase(value)` Convert string to uppercase
+- `Str.toPascalCase(value)` Convert string to PascalCase
+- `Str.toSnakeCase(value, delimiter?)` Convert string to snake_case (default delimiter `_`)
+- `Str.toCamelCase(value)` Convert string to camelCase
+- `Str.startsWith(value, needles)` Check if string starts with any needle
+- `Str.endsWith(value, needles)` Check if string ends with any needle
+- `Str.contains(value, needles)` Check if string contains any needle
+- `Str.random(size?)` Generate random alphanumeric string (default length 32)
+- `Str.ipToFileName(value)` Convert IP/address to filesystem-safe filename
+
+All `Str` methods accept an optional `combine` flag to return the builder for chaining:
+```ts
+Str.toUpperCase("hello", true).toSnakeCase(); // "HELLO" → "hello"
+```
+
+#### Arr
+- `Arr.first(array)` Get first element
+- `Arr.last(array)` Get last element
+- `Arr.only(array, keys)` Get elements at specified indices
+- `Arr.except(array, keys)` Get elements excluding specified indices
+- `Arr.pluck(array, key)` Extract a property from each element
+
 #### Object
-- `Object.serialize()` Convert values into actual value
-- `Object.parseFormData()` Convert form data into object and auto serialize
+- `Object.serialize(value)` Normalize values (empty strings → null, numeric strings → numbers, etc.)
+- `Object.parseFormData(formData, raw?)` Parse FormData into nested object. Pass `raw: true` to skip normalization.
+- `Object.only(object, keys)` Get only the specified keys
+- `Object.except(object, keys)` Get all keys except the specified ones
+- `Object.first(object)` Get the first property value
+- `Object.last(object)` Get the last property value
+
+#### Luxon
+- `Luxon.DateTime` Luxon DateTime class
+- `Luxon.Duration` Luxon Duration class
+- `Luxon.Interval` Luxon Interval class
 
 ## ☕ Support / Donate
 

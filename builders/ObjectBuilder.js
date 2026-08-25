@@ -6,6 +6,7 @@ import { isEmpty, isNotEmpty } from "../utils/utils";
  * instances) into a consistent, JSON-friendly structure.
  */
 export default class ObjectBuilder {
+    /** The raw data object under transformation. */
     value;
     constructor() {
         this.value = {};
@@ -20,6 +21,12 @@ export default class ObjectBuilder {
         this.value = value;
         return this;
     }
+    /**
+     * Returns a new object containing only the specified keys.
+     *
+     * @param {Array<string>} keys - The keys to retain.
+     * @returns {Record<string, any>} A filtered copy containing only the given keys.
+     */
     only(keys) {
         const result = {};
         for (const key of keys) {
@@ -29,6 +36,12 @@ export default class ObjectBuilder {
         }
         return result;
     }
+    /**
+     * Returns a new object with the specified keys excluded.
+     *
+     * @param {Array<string>} keys - The keys to remove.
+     * @returns {Record<string, any>} A filtered copy excluding the given keys.
+     */
     except(keys) {
         const result = {};
         const blacklist = new Set(keys);
@@ -39,10 +52,20 @@ export default class ObjectBuilder {
         }
         return result;
     }
+    /**
+     * Returns the first property value of the object.
+     *
+     * @returns {any | undefined} The first value, or undefined when empty.
+     */
     first() {
         const keys = Object.keys(this.value);
         return keys.length ? this.value[keys[0]] : undefined;
     }
+    /**
+     * Returns the last property value of the object.
+     *
+     * @returns {any | undefined} The last value, or undefined when empty.
+     */
     last() {
         const keys = Object.keys(this.value);
         return keys.length ? this.value[keys[keys.length - 1]] : undefined;
@@ -76,6 +99,8 @@ export default class ObjectBuilder {
                         current[part] = value;
                     else if (Array.isArray(current[part]))
                         current[part].push(value);
+                    else
+                        current[part] = [current[part], value];
                 }
                 else {
                     const isArrayIndex = /^\d+$/.test(nextPart);

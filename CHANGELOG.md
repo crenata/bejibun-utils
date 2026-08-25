@@ -3,6 +3,47 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [v0.1.30](https://github.com/Bejibun-Framework/bejibun-utils/compare/v0.1.29...v0.1.30) - 2026-08-25
+
+### 🩹 Fixes
+#### `isEmpty()`
+Replaced `Bun.stringWidth()` with a simple `trim() === ""` check for string emptiness. The previous implementation measured terminal display width on every call, which is far more expensive than a length check.
+
+#### `isCommandExists()`
+Added a `Map` cache so each command is only spawned once. Previously the function spawned `which`/`where` on every call despite claiming results were cached.
+
+#### `StrBuilder.startsWith()` / `endsWith()` / `contains()`
+These query methods no longer overwrite `this.value` with `"true"` or `"false"`. Previously, chaining like `str.startsWith("h").toUpper()` would produce `"TRUE"` instead of the original string uppercased.
+
+#### `ArrBuilder.only()` / `except()`
+Converted the key lookup from `Array.includes()` to `Set.has()`, reducing complexity from O(n·m) to O(n+m).
+
+#### `ObjectBuilder.parseFormData()`
+Fixed data loss for repeated non-bracket form fields (e.g. `tags=a&tags=b`). Previously only the first value was kept; now a third occurrence correctly converts the string to an array.
+
+### 📖 Changes
+#### `index.ts`
+Added deep-import documentation to the barrel file, listing all available deep import paths for smaller bundles and faster cold starts.
+
+#### JSDoc
+Added JSDoc comments to all protected properties, type/interface properties, and enums across all source files.
+
+#### Tests
+Recreated the full test suite (119 tests across 6 files): `utils.test.ts`, `arr.test.ts`, `str.test.ts`, `enum.test.ts`, `object.test.ts`, `luxon.test.ts`.
+
+### 📦 Dependencies
+
+- Bumped [`@bejibun/logger`](https://github.com/Bejibun-Framework/bejibun-logger) from `^0.1.22` to `^0.2.1`
+- Bumped `eslint` from `^10.8.1` to `^10.9.1`
+- Bumped `typescript-eslint` from `^8.67.0` to `^8.68.0`
+
+### ❤️Contributors
+- Havea Crenata ([@crenata](https://github.com/crenata))
+
+**Full Changelog**: https://github.com/Bejibun-Framework/bejibun-utils/blob/master/CHANGELOG.md
+
+---
+
 ## [v0.1.29](https://github.com/Bejibun-Framework/bejibun-utils/compare/v0.1.28...v0.1.29) - 2026-08-20
 
 ### 🩹 Fixes

@@ -5,6 +5,7 @@
  * directly.
  */
 export default class ArrBuilder {
+    /** The working array of values under transformation. */
     protected values: Array<any>;
     constructor();
     /**

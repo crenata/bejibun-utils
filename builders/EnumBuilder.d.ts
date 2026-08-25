@@ -1,11 +1,9 @@
-export type EnumItem = {
-    name: string;
-    value: any;
-};
+import type { EnumItem } from "../types/enum";
 /**
  * Fluent builder that provides lookup helpers over a single enum definition.
  */
 export default class EnumBuilder {
+    /** The enum object being introspected. */
     protected enums: any;
     /**
      * Creates a builder for the given enum.

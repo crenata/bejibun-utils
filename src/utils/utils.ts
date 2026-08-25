@@ -10,7 +10,7 @@ export const isEmpty = (value: any): boolean => {
     if (typeof value === "boolean") return !value;
     if (typeof value === "number") return value === 0 || Number.isNaN(value);
     if (typeof value === "bigint") return value === 0n;
-    if (typeof value === "string") return Bun.stringWidth(value.trim()) === 0;
+    if (typeof value === "string") return value.trim() === "";
     if (Array.isArray(value)) return value.length === 0;
     if (value instanceof Blob || value instanceof Map || value instanceof Set)
         return value.size === 0;
@@ -72,11 +72,18 @@ export const ask = (question: string): Promise<string> => {
  * @param {string} command - The command name to look up (e.g. "bun").
  * @returns {boolean} True when the command exists, otherwise false.
  */
+const commandCache: Map<string, boolean> = new Map();
+
 export const isCommandExists = (command: string): boolean => {
+    if (commandCache.has(command)) return commandCache.get(command)!;
+
     const isWindows = process.platform === "win32";
     const checker = isWindows ? "where" : "which";
+    const exists = Bun.spawnSync([checker, command]).exitCode === 0;
 
-    return Bun.spawnSync([checker, command]).exitCode === 0;
+    commandCache.set(command, exists);
+
+    return exists;
 };
 
 /**

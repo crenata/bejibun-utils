@@ -7,6 +7,7 @@ import { defineValue, isNotEmpty } from "../utils/utils";
  * `combine` flag.
  */
 export default class StrBuilder {
+    /** The working string value under transformation. */
     value;
     constructor() {
         this.value = "";
@@ -136,7 +137,6 @@ export default class StrBuilder {
     startsWith(needles, combine) {
         const list = Array.isArray(needles) ? needles : [needles];
         const result = list.some((needle) => this.value.startsWith(needle));
-        this.value = String(result);
         if (isNotEmpty(combine))
             return this;
         return result;
@@ -151,7 +151,6 @@ export default class StrBuilder {
     endsWith(needles, combine) {
         const list = Array.isArray(needles) ? needles : [needles];
         const result = list.some((needle) => this.value.endsWith(needle));
-        this.value = String(result);
         if (isNotEmpty(combine))
             return this;
         return result;
@@ -166,7 +165,6 @@ export default class StrBuilder {
     contains(needles, combine) {
         const list = Array.isArray(needles) ? needles : [needles];
         const result = list.some((needle) => this.value.includes(needle));
-        this.value = String(result);
         if (isNotEmpty(combine))
             return this;
         return result;

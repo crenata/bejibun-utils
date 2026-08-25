@@ -3,6 +3,7 @@
  * instances) into a consistent, JSON-friendly structure.
  */
 export default class ObjectBuilder {
+    /** The raw data object under transformation. */
     protected value: Record<string, any>;
     constructor();
     /**
@@ -12,9 +13,31 @@ export default class ObjectBuilder {
      * @returns {ObjectBuilder} The current builder instance.
      */
     setValue(value: Record<string, any>): ObjectBuilder;
+    /**
+     * Returns a new object containing only the specified keys.
+     *
+     * @param {Array<string>} keys - The keys to retain.
+     * @returns {Record<string, any>} A filtered copy containing only the given keys.
+     */
     only(keys: Array<string>): Record<string, any>;
+    /**
+     * Returns a new object with the specified keys excluded.
+     *
+     * @param {Array<string>} keys - The keys to remove.
+     * @returns {Record<string, any>} A filtered copy excluding the given keys.
+     */
     except(keys: Array<string>): Record<string, any>;
+    /**
+     * Returns the first property value of the object.
+     *
+     * @returns {any | undefined} The first value, or undefined when empty.
+     */
     first(): any | undefined;
+    /**
+     * Returns the last property value of the object.
+     *
+     * @returns {any | undefined} The last value, or undefined when empty.
+     */
     last(): any | undefined;
     /**
      * Normalizes the stored value into a JSON-friendly structure.

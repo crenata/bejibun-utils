@@ -4,6 +4,7 @@ import { isEmpty, isNotEmpty } from "../utils/utils";
  * Fluent builder that provides lookup helpers over a single enum definition.
  */
 export default class EnumBuilder {
+    /** The enum object being introspected. */
     enums;
     /**
      * Creates a builder for the given enum.
