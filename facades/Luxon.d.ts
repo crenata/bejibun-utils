@@ -1,9 +1,3 @@
-/**
- * Facade exposing Luxon types via lazy getters.
- *
- * Luxon is required only when a getter is accessed, so merely importing this
- * facade does not pay Luxon's cold-start cost.
- */
 export default class Luxon {
     /**
      * Accesses the Luxon DateTime type.
